@@ -71,9 +71,9 @@ void hex_to_64 (char *src, char *dest){
 }
 
 int main(){
-    char abcd[500] = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
-    char cdef[500] = "";
-    hex_to_64(abcd,cdef);    
-    cout<<cdef; 
+    char src[500] = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
+    char dest[500] = "";
+    hex_to_64(src,dest);    
+    cout<<dest; 
     return 0;
 }

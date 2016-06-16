@@ -23,4 +23,8 @@
  *   15  P         31  f          47  v        63  /
  */
 
+//Function for converting base 64 integer to correct representation 
+char hexbase_int_to_64base_repr(int b64);
 
+//Function to convert hex encoded string to base 64 encoded string
+void hex_to_64 (char *src, char *dest);
