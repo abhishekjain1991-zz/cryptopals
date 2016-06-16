@@ -65,12 +65,15 @@ void hex_to_64 (char *src, char *dest){
         }
     }
     for(int i=0;i<b64_array_element_count;i++){
-        cout<<hexbase_int_to_64base_repr(decimal_array[i]);
+        dest[i] = hexbase_int_to_64base_repr(decimal_array[i]);
     }
+    dest[++b64_array_element_count] = '\0';
 }
 
 int main(){
     char abcd[500] = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
-    hex_to_64(abcd,NULL);    
+    char cdef[500] = "";
+    hex_to_64(abcd,cdef);    
+    cout<<cdef; 
     return 0;
 }
