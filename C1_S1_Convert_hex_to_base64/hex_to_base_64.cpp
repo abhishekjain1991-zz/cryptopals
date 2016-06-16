@@ -6,13 +6,22 @@
 
 using namespace std;
 
-//Function to convert hex to base 64 integer
-int hex_to_base_int(uint16_t hex){
-
-}
 //Function for converting base 64 integer to correct representation
-char hexbase_int_to_64base_repr(uint16_t b64){
-
+char hexbase_int_to_64base_repr(int b64){
+    if(b64>=0 && b64<=25){
+    //if value between 0 to 25 convert into char between A and Z
+        return((char)(b64+65));
+    }else if (b64>=26 && b64 <=51){
+    //if value between 26 to 51 convert into char between a and z
+        return ((char)(b64+97-26));
+    }else if (b64 == 62){
+        return '+';
+    }else if (b64 == 63){
+        return '/';
+    }else{
+        //if value between 52 to 61 convert into char between 0 and 9
+        return (char)(b64-52+48);
+    }
 }
 
 //Function to convert char to int
@@ -56,12 +65,12 @@ void hex_to_64 (char *src, char *dest){
         }
     }
     for(int i=0;i<b64_array_element_count;i++){
-        cout<<decimal_array[i]<<" ";
+        cout<<hexbase_int_to_64base_repr(decimal_array[i]);
     }
 }
 
 int main(){
-    char abcd[7] = "49276d";
+    char abcd[500] = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
     hex_to_64(abcd,NULL);    
     return 0;
 }
